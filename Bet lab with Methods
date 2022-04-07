@@ -1,0 +1,91 @@
+/Kye Mora Lab 10
+
+import java.util.Scanner;
+import java.util.Random;
+
+public class KMora10
+{
+	public static void main(String [] args)
+	{
+		int sMoney = 500;
+		System.out.println(sMoney);
+		
+		Scanner input = new Scanner(System.in);
+		Random rnd1 = new Random();
+
+		int bet;
+		int guess;
+		boolean check;
+		int win;
+
+		while(sMoney > 0 && sMoney < 1000)
+		{
+			amount(sMoney);
+			bet = userBet();
+               		guess = userGuess();
+               		check = checkGuess(guess);
+			win = winnings(sMoney,bet);	
+			if(check == true)
+			{
+				sMoney = winnings(sMoney,(bet * 2));
+                	}
+			else 
+			{
+				sMoney = winnings(sMoney,(-bet));
+			}
+		}
+		 if(sMoney == 1000)
+                        {
+                                System.out.println("You've won!");
+                        }
+                        else
+                        {
+                                System.out.println("Out of luck!");
+                        }
+	}
+
+		public static int userBet()
+		{
+			int z = 0;
+			Scanner input = new Scanner(System.in);
+			System.out.println("Enter your starting bet");
+			z = input.nextInt();
+			return z;
+		}
+
+		public static int userGuess()
+		{
+			int x = 0;
+			Scanner input = new Scanner(System.in);
+			System.out.println("Enter a number from 1 - 5");
+			x = input.nextInt();
+			return x;
+		}
+		
+		public static boolean checkGuess(int guess)
+		{
+			Random rnd1 = new Random();
+                     	int y = rnd1.nextInt(5)+1;
+                       
+			if(y == guess)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		
+		public static int winnings(int k, int j)
+		{			
+			k =k+ j;
+			return k;
+		}
+	
+		public static void amount(int x )
+		{
+			System.out.println(x);
+		}
+
+}
