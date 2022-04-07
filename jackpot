@@ -1,29 +1,37 @@
+//Kye Mora
+import java.util.Random;
+import java.util.Scanner;
+
 public class KMora11
 {
         public static void main(String [] args)
-        {
+        {       
                 int one = 0, two = 0, three = 0;
-                int pot = 0, jackpot =0;
-
-                Date now = new Date();
+                int pot = 0, jackpot = 0, bet = 0 ;
+                
                 Random rnd = new Random();
-                rnd.setSeed(now.getTime());
-
+                bet = prompt1();
+                
                 for(int i =0; i <10000; i++)
-                {
-                        one = rnd.nextInt(25);
-                        two = rnd.nextInt(25);
-                        three = rnd.nextInt(25);
-
+                {       
+                        one = rando(25);
+                        two = rando(25);
+                        three = rando(25);
+                        
                         System.out.println(one + " " + two + " " +  three);
-
-                if((one == two) && (one == three))
-                {
-                        System.out.println("jackpot!");
-                        jackpot++;
-                }
-
-                }
-                        System.out.println("You won " + jackpot + " times");
+                        
+                        if((one == two) && (one == three))
+                        {       
+                                System.out.println("jackpot!");
+                                jackpot++;
+                        }
+                 
+                }        
+                         System.out.println("You won " + jackpot + " times");
         }
-}
+
+        public static int prompt1()
+        {
+                int x = 0;
+-- INSERT --
+
